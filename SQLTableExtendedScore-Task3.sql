@@ -53,7 +53,7 @@ filtered_unemployment AS (
 	SELECT population.sa2_code, 
 	population.sa2_name, 
 	per_unempl, 
-	ROUND(1000 - ((per_unempl / 100) * 1000)) as employment_rate_per_1000 -- employment rate per 1000 people of the sa2_code areas 
+	ROUND(1000 - ((per_unempl / 100) * 1000)) as employment_rate_per_1000, -- employment rate per 1000 people of the sa2_code areas 
 	(total_people - "0-4_people" - "5-9_people" - "10-14_people") AS adult_population, 
 	ROUND(((total_people - "0-4_people" - "5-9_people" - "10-14_people") - ((per_unempl / 100) * (total_people - "0-4_people" - "5-9_people" - "10-14_people")))) AS total_employed --total employed by SA2_code
 	FROM  population

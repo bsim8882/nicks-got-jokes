@@ -202,7 +202,7 @@ total_zscore as (
 	ON sa2_boundaries.sa2_code21 = zscore_future.sa2_code
 )
 
-select * from total_zscore
+select *, (1 / (1 + exp(-"x_val"))) as sigmoid_val from total_zscore
 
 
 
